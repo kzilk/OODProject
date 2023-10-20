@@ -13,20 +13,9 @@ import java.util.List;
  */
 public class Breakdown {
     
-    private static String type;        //type of breakdown eg tire, breaks, or engine
-    private static int temp;
-    private static String condition;
-    
-    List<Breakdown> breakdownList = new ArrayList<>();
-    
-    public void addBreakdown(String type, int temp, String condition){
-        Breakdown breakdown = new Breakdown(type, 
-                temp, condition);   
-        
-        breakdownList.add(breakdown);   
-        Compare.updateCompare(breakdownList);
-        
-    }
+    private String type;       
+    private int temp;
+    private String condition;   
     
     //Breakdown Class constructor
     Breakdown(String newType, int newTemp, String newCondition){
@@ -35,4 +24,17 @@ public class Breakdown {
         condition = newCondition;
     }
     
+    public String getType(){
+        return type;
+    }
+    
+    public int getTemp(){
+        return temp;
+    }
+    
+    public String getCondition(){
+        return condition;
+    }
+    
 }
+ 
