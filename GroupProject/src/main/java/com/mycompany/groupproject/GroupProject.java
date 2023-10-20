@@ -16,17 +16,11 @@ public class GroupProject {
 
     List<Breakdown> breakdownList = new ArrayList<>();
     Compare compare = new Compare();
-    private static Tire tire;
-    private static Engine engine;
-    private static Brakes brakes;
+    private static Type type;
 
-    
     public static void main(String[] args) {   
-        tire = new Tire();
-        engine = new Engine();
-        brakes = new Brakes();
+        type = new Type();
 
-        
         Scanner scan = new Scanner(System.in);
         
         System.out.println("Please enter your first breakdown details: ");
@@ -43,7 +37,7 @@ public class GroupProject {
         String cont = scan.nextLine();
                
         if(cont.equals("Exit")){
-            results(tire, engine, brakes);
+            results(type);
         }else{
             System.out.println("Please enter the information for "
                     + "the next breakdown: ");
@@ -56,9 +50,9 @@ public class GroupProject {
     
     public static void update(){
             Scanner scan = new Scanner(System.in);
-            System.out.println("What is the type of breakdown; Tire, Breaks, "
+            System.out.println("What is the type of breakdown; Tire, Brakes, "
                     + "or Engine: ");
-            String type = scan.nextLine();
+            String kind = scan.nextLine();
             
             System.out.println("What was the temperature when it occured "
                     + "or was reported (in F)? ");
@@ -71,67 +65,39 @@ public class GroupProject {
                     + "Stormy, Snowy, or Windy.");                
             String condition = scan.nextLine();
             
-            Breakdown breakdown = new Breakdown(type, temp, 
+            Breakdown breakdown = new Breakdown(kind, temp, 
                     condition);              
              
             Compare.add(breakdown);     
     }
     
-    public static void results(Tire tire, Engine engine, Brakes brakes){
+    public static void results(Type type){
         //tire returns
-       System.out.println("Here are the weather conditions for all "
-               + "Tire breakdowns:");
-       
-       System.out.println("Freezing conditions = " + tire.getFreezing());
-       System.out.println("Cold conditions = " + tire.getCold());
-       System.out.println("Warm conditions = " + tire.getWarm());
-       System.out.println("Hot conditions = " + tire.getHot());
+       System.out.println("Here are the number of each type of breakdown "
+               + "and the weather conditions for all.");
        
        System.out.println();
        
-       System.out.println("Good weather = " + tire.getGood());
-       System.out.println("Rainy weather = " + tire.getRainy());
-       System.out.println("Stormy weather = " + tire.getStormy());
-       System.out.println("Windy weather = " + tire.getWindy());
-       System.out.println("Snowy weather = " + tire.getSnowy());
-       System.out.println();
-       
-       //brake returns
-       System.out.println("Here are the weather conditions for all "
-               + "Brake breakdowns:");
-       
-       System.out.println("Freezing conditions = " + brakes.getFreezing());
-       System.out.println("Cold conditions = " + brakes.getCold());
-       System.out.println("Warm conditions = " + brakes.getWarm());
-       System.out.println("Hot conditions = " + brakes.getHot());
+       System.out.println("Tire breakdowns = " + type.getTire());
+       System.out.println("Brake failures = " + type.getBrakes());
+       System.out.println("Engine breakdowns = " + type.getEngine());
+
+       System.out.println();  
+               
+       System.out.println("Freezing conditions = " + type.getFreezing());
+       System.out.println("Cold conditions = " + type.getCold());
+       System.out.println("Warm conditions = " + type.getWarm());
+       System.out.println("Hot conditions = " + type.getHot());
        
        System.out.println();
        
-       System.out.println("Good weather = " + brakes.getGood());
-       System.out.println("Rainy weather = " + brakes.getRainy());
-       System.out.println("Stormy weather = " + brakes.getStormy());
-       System.out.println("Windy weather = " + brakes.getWindy());
-       System.out.println("Snowy weather = " + brakes.getSnowy());
+       System.out.println("Good weather = " + type.getGood());
+       System.out.println("Rainy weather = " + type.getRainy());
+       System.out.println("Stormy weather = " + type.getStormy());
+       System.out.println("Windy weather = " + type.getWindy());
+       System.out.println("Snowy weather = " + type.getSnowy());
        System.out.println();
-       
-       //engine returns
-       
-       System.out.println("Here are the weather conditions for all "
-               + "Brake breakdowns:");
-       
-       System.out.println("Freezing conditions = " + engine.getFreezing());
-       System.out.println("Cold conditions = " + engine.getCold());
-       System.out.println("Warm conditions = " + engine.getWarm());
-       System.out.println("Hot conditions = " + engine.getHot());
-       
-       System.out.println();
-       
-       System.out.println("Good weather = " + engine.getGood());
-       System.out.println("Rainy weather = " + engine.getRainy());
-       System.out.println("Stormy weather = " + engine.getStormy());
-       System.out.println("Windy weather = " + engine.getWindy());
-       System.out.println("Snowy weather = " + engine.getSnowy());
-       
+      
        System.exit(0);
     }
     

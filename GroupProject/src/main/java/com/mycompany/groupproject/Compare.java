@@ -9,7 +9,7 @@ import java.util.List;
  *
  * @author kziel
  */
-public  class Compare {
+public class Compare{
     private static List<Breakdown> breakdownList = new ArrayList<>();
     private String type;       
     private int temp;
@@ -21,85 +21,38 @@ public  class Compare {
         Breakdown latestBreak = breakdownList.get(breakdownList.size() -1);
         
         
-        if (latestBreak.getType().equals("Tire")){
+        if (latestBreak.getKind().equals("Tire")){
+            Type.addTire();
+        }else if (latestBreak.getKind().equals("Brakes")){
+            Type.addBrakes();
+        }else if (latestBreak.getKind().equals("Engine")){
+            Type.addEngine();
+        }
+            
             //check and update temp count
-            if (latestBreak.getTemp() <= 32){
-                Tire.addFreezing();
-            }else if (latestBreak.getTemp() <= 55){
-                Tire.addCold();
-            }else if (latestBreak.getTemp() <= 75){
-                Tire.addWarm();
-            }else if (latestBreak.getTemp() > 75){
-                Tire.addHot();       
-            }
+        if (latestBreak.getTemp() <= 32){
+            Type.addFreezing();
+        }else if (latestBreak.getTemp() <= 55){
+            Type.addCold();
+        }else if (latestBreak.getTemp() <= 75){
+            Type.addWarm();
+        }else if (latestBreak.getTemp() > 75){
+             Type.addHot();       
+        }
             
             //check and update condition count
-            if (latestBreak.getCondition().equals("Good") ){
-                Tire.addGood();
-            }else if (latestBreak.getCondition().equals("Rainy")){
-                Tire.addRainy();           
-            }else if (latestBreak.getCondition().equals("Stormy")){
-                Tire.addStormy();
-            }else if (latestBreak.getCondition().equals("Windy")){
-                Tire.addWindy();
-            }else if (latestBreak.getCondition().equals("Snowy")){
-                Tire.addSnowy();
-            }
-            
-        }else if (latestBreak.getType().equals("Brakes")){
-            //check and update temp count
-            if (latestBreak.getTemp() <= 32){
-                Brakes.addFreezing();
-            }else if (latestBreak.getTemp() <= 55){
-                Brakes.addCold();
-            }else if (latestBreak.getTemp() <= 75){
-                Brakes.addWarm();
-            }else if (latestBreak.getTemp() > 75){
-                Brakes.addHot();       
-            }
-            
-            //check and update condition count
-            if (latestBreak.getCondition().equals("Good") ){
-                Brakes.addGood();
-            }else if (latestBreak.getCondition().equals("Rainy")){
-                Brakes.addRainy();           
-            }else if (latestBreak.getCondition().equals("Stormy")){
-                Brakes.addStormy();
-            }else if (latestBreak.getCondition().equals("Windy")){
-                Brakes.addWindy();
-            }else if (latestBreak.getCondition().equals("Snowy")){
-                Brakes.addSnowy();
-            }
-        }else if (latestBreak.getType().equals("Engine")){
-                //check and update temp count
-            if (latestBreak.getTemp() <= 32){
-                Engine.addFreezing();
-            }else if (latestBreak.getTemp() <= 55){
-                Engine.addCold();
-            }else if (latestBreak.getTemp() <= 75){
-                Engine.addWarm();
-            }else if (latestBreak.getTemp() > 75){
-                Engine.addHot();       
-            }
-            
-            //check and update condition count
-            if (latestBreak.getCondition().equals("Good") ){
-                Engine.addGood();
-            }else if (latestBreak.getCondition().equals("Rainy")){
-                Engine.addRainy();           
-            }else if (latestBreak.getCondition().equals("Stormy")){
-                Engine.addStormy();
-            }else if (latestBreak.getCondition().equals("Windy")){
-                Engine.addWindy();
-            }else if (latestBreak.getCondition().equals("Snowy")){
-                Engine.addSnowy();
-            }
+        if (latestBreak.getCondition().equals("Good") ){
+            Type.addGood();
+        }else if (latestBreak.getCondition().equals("Rainy")){
+            Type.addRainy();           
+        }else if (latestBreak.getCondition().equals("Stormy")){
+            Type.addStormy();
+        }else if (latestBreak.getCondition().equals("Windy")){
+            Type.addWindy();
+        }else if (latestBreak.getCondition().equals("Snowy")){
+            Type.addSnowy();
+   
         }        
     }
-    
-    
 
-
-
-    
 }

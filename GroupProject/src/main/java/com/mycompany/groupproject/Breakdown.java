@@ -11,27 +11,31 @@ import java.util.List;
  *
  * @author kziel
  */
-public class Breakdown {
+public class Breakdown implements BreakdownInterface{
     
-    private String type;       
+    private String kind;       
     private int temp;
     private String condition;   
     
     //Breakdown Class constructor
-    Breakdown(String newType, int newTemp, String newCondition){
-        type = newType;
+    Breakdown(String newKind, int newTemp, String newCondition){
+        kind = newKind;
         temp = newTemp;
         condition = newCondition;
     }
     
-    public String getType(){
-        return type;
+   
+    @Override
+    public String getKind(){
+        return kind;
     }
     
+    @Override
     public int getTemp(){
         return temp;
     }
     
+    @Override
     public String getCondition(){
         return condition;
     }
