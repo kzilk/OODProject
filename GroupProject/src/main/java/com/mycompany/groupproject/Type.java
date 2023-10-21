@@ -4,11 +4,12 @@
  */
 package com.mycompany.groupproject;
 
+
 /**
  *
  * @author kziel
  */
-class Type implements TypeInterface {
+class Type implements TypeObserverInterface{    
     public static int freezing;
     public static int cold;
     public static int warm;
@@ -43,12 +44,49 @@ class Type implements TypeInterface {
         
     }
     
+    @Override
+    public void add(Breakdown breakdown){
+       
+        if (breakdown.getKind().equals("Tire")){
+            Type.addTire();
+        }else if (breakdown.getKind().equals("Brakes")){
+            Type.addBrakes();
+        }else if (breakdown.getKind().equals("Engine")){
+            Type.addEngine();
+        }
+            
+            //check and update temp count
+        if (breakdown.getTemp() <= 32){
+            Type.addFreezing();
+        }else if (breakdown.getTemp() <= 55){
+            Type.addCold();
+        }else if (breakdown.getTemp() <= 75){
+            Type.addWarm();
+        }else if (breakdown.getTemp() > 75){
+             Type.addHot();       
+        }
+            
+            //check and update condition count
+        if (breakdown.getCondition().equals("Good") ){
+            Type.addGood();
+        }else if (breakdown.getCondition().equals("Rainy")){
+            Type.addRainy();           
+        }else if (breakdown.getCondition().equals("Stormy")){
+            Type.addStormy();
+        }else if (breakdown.getCondition().equals("Windy")){
+            Type.addWindy();
+        }else if (breakdown.getCondition().equals("Snowy")){
+            Type.addSnowy();
+   
+        }        
+    }
+    
             //type vals
     public static void addTire(){
         Tire++;
     }
     
-    @Override
+    
     public int getTire(){
         return Tire;
     }
@@ -57,7 +95,7 @@ class Type implements TypeInterface {
         Brakes++;
     }
     
-    @Override
+    
     public int getBrakes(){
         return Brakes;
     }
@@ -66,7 +104,7 @@ class Type implements TypeInterface {
         Engine++;
     }
     
-    @Override
+    
     public int getEngine(){
         return Engine;
     }
@@ -77,7 +115,7 @@ class Type implements TypeInterface {
         freezing++;
     }
     
-    @Override
+    
     public int getFreezing(){
         return freezing;
     }
@@ -86,7 +124,7 @@ class Type implements TypeInterface {
         cold++;
     }
     
-    @Override
+    
     public int getCold(){
         return cold;
     }
@@ -95,7 +133,7 @@ class Type implements TypeInterface {
         warm++;
     }
     
-    @Override
+    
     public int getWarm(){
         return warm;
     }
@@ -104,7 +142,7 @@ class Type implements TypeInterface {
         hot++;
     }
     
-    @Override
+    
     public int getHot(){
         return hot;
     }
@@ -115,7 +153,7 @@ class Type implements TypeInterface {
         Rainy++;
     }
     
-    @Override
+    
     public int getRainy(){
         return Rainy;
     }
@@ -124,7 +162,7 @@ class Type implements TypeInterface {
         Good++;
     }
     
-    @Override
+    
     public int getGood(){
         return Good;
     }
@@ -133,7 +171,7 @@ class Type implements TypeInterface {
         Stormy++;
     }
     
-    @Override
+    
     public int getStormy(){
         return Stormy;
     }
@@ -142,7 +180,7 @@ class Type implements TypeInterface {
         Windy++;
     }
     
-    @Override
+    
     public int getWindy(){
         return Windy;
     }
@@ -151,7 +189,7 @@ class Type implements TypeInterface {
         Snowy++;
     }
     
-    @Override
+    
     public int getSnowy(){
         return Snowy;
     }

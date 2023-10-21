@@ -1,4 +1,5 @@
 com\mycompany\groupproject\GroupProject.class
-com\mycompany\groupproject\Compare.class
+com\mycompany\groupproject\BreakdownSubjectInterface.class
 com\mycompany\groupproject\Breakdown.class
+com\mycompany\groupproject\TypeObserverInterface.class
 com\mycompany\groupproject\Type.class

@@ -4,14 +4,11 @@
  */
 package com.mycompany.groupproject;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  * @author kziel
  */
-public class Breakdown implements BreakdownInterface{
+public class Breakdown implements BreakdownSubjectInterface{
     
     private String kind;       
     private int temp;
@@ -24,18 +21,23 @@ public class Breakdown implements BreakdownInterface{
         condition = newCondition;
     }
     
-   
+    
     @Override
+    public void updateType(Type type, Breakdown breakdown){
+        type.add(breakdown);
+    }
+   
+    
     public String getKind(){
         return kind;
     }
     
-    @Override
+   
     public int getTemp(){
         return temp;
     }
     
-    @Override
+    
     public String getCondition(){
         return condition;
     }

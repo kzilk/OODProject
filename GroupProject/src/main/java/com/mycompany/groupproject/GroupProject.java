@@ -4,8 +4,6 @@
 
 package com.mycompany.groupproject;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -13,9 +11,6 @@ import java.util.Scanner;
  * @author kziel
  */
 public class GroupProject {
-
-    List<Breakdown> breakdownList = new ArrayList<>();
-    Compare compare = new Compare();
     private static Type type;
 
     public static void main(String[] args) {   
@@ -68,7 +63,7 @@ public class GroupProject {
             Breakdown breakdown = new Breakdown(kind, temp, 
                     condition);              
              
-            Compare.add(breakdown);     
+            breakdown.updateType(type, breakdown);
     }
     
     public static void results(Type type){
