@@ -3,3 +3,5 @@ com\mycompany\groupproject\BreakdownSubjectInterface.class
 com\mycompany\groupproject\Breakdown.class
 com\mycompany\groupproject\TypeObserverInterface.class
 com\mycompany\groupproject\Type.class
+com\mycompany\groupproject\TypeInterface.class
+com\mycompany\groupproject\BreakdownInterface.class

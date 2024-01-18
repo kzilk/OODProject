@@ -30,8 +30,10 @@ public class GroupProject {
         System.out.println("Please enter 'Update' to provide a new "
                 + "breakdown scenario, or 'Exit' to view results.");
         String cont = scan.nextLine();
-               
-        if(cont.equals("Exit")){
+        
+        String contLow = cont.toLowerCase();
+        
+        if(contLow.equals("exit")){
             results(type);
         }else{
             System.out.println("Please enter the information for "
